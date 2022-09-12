@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>EasyToBuild</title>
+    <style>
+        body {
+            background-image: url("BK1.PNG");
+            background-attachment: fixed;
+        }
+        p,h2,h3,h1,h4 {
+             font-family: cursive;
+             color: #ffffff;
+        }
+   .topnav {
+        overflow: hidden;
+          ;
+            }
+
+    .topnav a {
+          float: left;  
+          display: block;
+         color: #ffffff;
+         text-align: center;
+         padding: 15px 20px;
+         text-decoration: none;
+         font-family: cursive;
+        }
+    .topnav a:hover {
+        background-color: #ddd;
+        color: black;
+}
+    </style>
+</head>
+    <h1 style="text-align: center;color: #ffffff;font-size: 250%;padding-top: 25.5px;"> EasyToCreate </h1>
+    <body>
+        <div class="topnav">
+            <div style="padding-left: 3%"></div>
+                <a href="EasyToBuild.html" style="font-size:145%;"> Table</a>
+                <a href="list.html"style="font-size:145%;"> Order List </a>
+                <a href="UList.html"style="font-size:145%;">Unorder List</a>
+                <a href="Multimedia.html"style="font-size:145%;" target="_blank"> Tutorial </a>
+            <div style="padding-left: 90%;">
+                <a href="mailto:ahmad.salem@asu.edo.jo"style="font-size:135%;"> Contact us </a>
+        </div>
+    </div>
+        <br> 
+        <form name="list">
+                <div style="margin: 0px 50px 0px ">
+                    <p > Number of items <input type="text" id="num"> <br> </p>
+                    <h4 style="padding-bottom: 10px;"> select the type of List </h4>
+                        <input type="button" value=" Unorder List " onclick="getL()" class="btn btn-outline-light"> 
+                        <input type="button" value=" Circle List " onclick="getL_c()" class="btn btn-outline-light" style="margin: 0px 15px;">
+                        <input type="button" value=" Square List " onclick="getL_s()" class="btn btn-outline-light">
+                    <br><br> 
+                        <input type="reset" value="Reset" class="btn btn-outline-light"> 
+                    <br><br>
+                <textarea id="getLi" rows="13.5" cols="50"> click the button of list type </textarea>
+                    <br><br>
+                        <input type="button" onclick="Dis()" value="Display list" class="btn btn-outline-light">
+                </div>
+            <p id="disp" style="border: 3xp solid;margin: 60px;" ></p>
+        </form>
+
+        <script>
+            var dis = "";
+            function getL(){
+                var num = parseInt(list.num.value) ,pos = 1;
+                var li = "";
+                li = "<ul> \n";
+                for(i = 0 ;i < num ;i++ ){
+                    li+=" <li> " + pos++ +" </li> \n";
+                }
+                li +=  "</ul>";
+                document.getElementById("getLi").value = li;
+                dis = li;
+            }
+
+            function getL_s(){
+                var num = parseInt(list.num.value) ,pos = 1;
+                var li = "";
+                li = "<ul type=\"square\"> \n";
+                for(i = 0 ;i < num ;i++ ){
+                    li+=" <li> " + pos++ +" </li> \n";
+                }
+                li +=  "</ul>";
+                document.getElementById("getLi").value = li;
+                dis = li;
+            }
+
+            function getL_c(){
+                var num = parseInt(list.num.value) ,pos = 1;
+                var li = "";
+                li = "<ul type=\"circle\"> \n";
+                for(i = 0 ;i < num ;i++ ){
+                    li+=" <li> " + pos++ +" </li> \n";
+                }
+                li +=  "</ul>";
+                document.getElementById("getLi").value = li;
+                dis = li;
+            }
+
+            function Dis(){
+                var field = "<fieldset> <legend> Your List </legend> "+dis+"</fieldset>";
+                document.getElementById("disp").innerHTML = field;
+            }
+            </script>
+
+    </body>
+</html>

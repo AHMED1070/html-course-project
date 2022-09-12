@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <title>EasyToBuild</title>
+    <link rel="stylesheet" type="text/css" href="bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <style>
+       
+        body {
+            background-image: url("BK1.PNG");
+            background-attachment: fixed;
+        }
+        #FF {
+             font-family: cursive;
+             color: #ffffff;
+        }
+   .topnav {
+        overflow: hidden;
+            }
+    .topnav a {
+          float: left;  
+          display: block;
+         color: #ffffff;
+         text-align: center;
+         padding: 15px 20px;
+         text-decoration: none;
+         font-family: cursive;
+        }
+    .topnav a:hover {
+        background-color: #ddd;
+        color: black;
+}
+    </style>
+</head>
+    <h1 style="text-align: center;color: #ffffff; font-size: 250%;padding-top: 25.5px;font-family: cursive;"> EasyToCreate </h1>
+    <body>
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="bootstrap.min"></script>
+        <div class="topnav">
+            <div style="padding-left: 3%"></div>
+                <a href="EasyToBuild.html" style="font-size:145%;"> Table</a>
+                <a href="list.html"style="font-size:145%;"> Order List </a>
+                <a href="UList.html"style="font-size:145%;">Unorder List</a>
+                <a href="Multimedia.html"style="font-size:145%;" target="_blank"> Tutorial </a>
+                <div style="padding-left: 90%;">
+                <a href="mailto:ahmad.salem@asu.edo.jo"style="font-size:135%;"> Contact us </a>
+        </div>
+    </div>
+        <br> 
+        <form name="table">
+                    
+                <h3 id="FF" style="margin: 0px 20px;"> Enter the dimensions of the table </h3> 
+                <br>
+                <div style="margin: 0px 50px 0px ;">
+            <table>
+                <tr>
+                    <td><p  id="FF"class="font-weight-normal"> Number of Columns</p></td> 
+                    <td><input  type="text" id="col"></td>
+                <tr>
+                    <td><p  id="FF" class="font-weight-normal"> Number of Rows</p></td> 
+                    <td><input type="text" id="row"></td>
+                </tr>
+            </table>
+            <br>
+                    <input type="button" value="Create the Table" onclick="getTable()"  class="btn btn-outline-light"  style="margin: 0px 15px;">
+                    <input type="reset" value="Reset"  class="btn btn-outline-light"> <pre>                                      </pre>
+                <!--- <input type="text" id="getT" size="30" maxlength="80"> <br><br>-->
+                <textarea id="getT" rows="13.5" cols="50"> click the button </textarea>
+                <br><br>
+                     <input type="button" onclick="Dis()" value="Display Table"  class="btn btn-outline-light">
+                </div>
+                <br><br>
+            <p id="displ" style="border: 3xp solid;margin: 60px;"> </p>
+            <br>
+        </form>  
+        <script>
+            var dis = "";
+            function getTable(){
+                var  C , R ,T = "<table width= \"75% \" border= \"1px solid black \"> \n";
+                var TD = 1 , k = 0;
+                
+                C = parseInt(table.col.value);
+                R = parseInt(table.row.value);
+            
+                for(i = 0 ; i < 1; i++){
+                    T += " <tr> \n";
+                        for(k = 0; k < 1 ; k++){
+                            for(x = 0 ; x < C;x++){
+                                T += " <th> "+ TD++ +" </th> \n";
+                            }
+                        T += " </tr>  \n" ;
+                    }
+            } 
+                for(i = 0 ; i < R-1 ;i++){
+                    T += "<tr> \n";
+                 for(y = 0 ; y < C ; y++){
+                        T += " <td style= \"padding : 5px \"> "+ TD++ +" </td> \n";
+                    }
+                    T += "</tr> \n"; 
+                }            
+                        T+= "</Table> \n";
+                        dis = T;
+                document.getElementById("getT").value = T;
+                dis = T;                
+            }
+            function Dis(){
+                var field = "<fieldset> <legend> Your Table </legend> "+dis+"</fieldset>";
+                document.getElementById("displ").innerHTML = dis;
+            }
+            </script>
+    </body>
+</html>
